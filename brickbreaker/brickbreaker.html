@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="brickStyles.css">
         <script src="brickbreakerMain.js" defer></script>
+        <script src="brickbreakerData.js" defer></script>
 
         <title>Brick Break</title>
     </head>
@@ -17,10 +18,13 @@
             <button class="startButton">Start Game</button>
         </div>
 
-        <div class="gameScreen">
-            <div class="gameContainer"></div>
-            <div class="ball"></div>
-            <div class="paddle"></div>
+        <div class="gameScreen" style="display: none;">
+            <canvas class="canvas"></canvas>
+            <canvas class="canvas1"></canvas>
+            <div style="display: inline;">
+                <h1 style="text-align: center;" class="currentScore">YOUR SCORE:</h1>
+                <h1 style="text-align: center;" class="highScore">HIGH SCORE:</h1>
+            </div>
         </div>
     </body>
 </html>
