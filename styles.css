@@ -5,9 +5,9 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #E5D8D8;
+    background-color: #CCC0C0;
     min-height: 100vh;
-    color: #1A1818;
+    color: #E5D8D8;
 }
 
 a {
@@ -22,9 +22,10 @@ header {
     width: 100%;
     min-height: 10vh;
     padding: 0 50px;
-    background-color: #B23636;
+    background-color: #4C171B;
     display: flex;
     align-items: center;
+    box-shadow: 0px 3px 2px #1A0709B6;
 }
 
 main {
@@ -42,12 +43,14 @@ main .gamesContainer .gameCard {
     background-color: #4C171B;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.6s ease;
     color: #E5D8D8;
+    box-shadow: 0px 0px 10px #4D171B;
 }
 
 main .gamesContainer .gameCard:hover {
     transform: scale(1.1);
+    box-shadow: 0px 0px 25px #4D171B;
 }
 
 main .gamesContainer .gameCard a {
@@ -56,6 +59,7 @@ main .gamesContainer .gameCard a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #E5D8D8;
 }
 
 main .gamesContainer .gameCard a:visited {
