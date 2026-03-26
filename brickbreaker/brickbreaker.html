@@ -11,20 +11,26 @@
     </head>
 
     <body>
-        <div class="startScreen">
-            <h1>Brick Break</h1>
-            <label for="playerName">Enter your player name</label>
-            <input type="text" class="playerName" placeholder="Your Name">
-            <button class="startButton">Start Game</button>
-        </div>
+        <header>
+            <div class="logo"><h1>Logo Here</h1></div>
+        </header>
 
-        <div class="gameScreen" style="display: none;">
-            <canvas class="canvas"></canvas>
-            <canvas class="canvas1"></canvas>
-            <div style="display: inline;">
-                <h1 style="text-align: center;" class="currentScore">YOUR SCORE:</h1>
-                <h1 style="text-align: center;" class="highScore">HIGH SCORE:</h1>
+        <main class="gameContainer">
+            <div class="startScreen">
+                <h1>Brick Break</h1>
+                <label for="playerName">Enter your player name</label>
+                <input type="text" class="playerName" placeholder="Your Name">
+                <button class="startButton">Start Game</button>
             </div>
-        </div>
+
+            <div class="gameScreen" style="display: none;">
+                <canvas class="canvas"></canvas>
+                <canvas class="canvas1"></canvas>
+                <div style="display: inline;">
+                    <h1 style="text-align: center;" class="currentScore">YOUR SCORE:</h1>
+                    <h1 style="text-align: center;" class="highScore">HIGH SCORE:</h1>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
