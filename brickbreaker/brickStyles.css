@@ -11,6 +11,9 @@ body {
     width: 100%;
     background-color: #CCC0C0;
     font-family: "Asimovian", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 header {
@@ -24,13 +27,15 @@ header {
 }
 
 main {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+    margin-top: 10vh;
+    height: 70vh;
+    width: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #E5D8D8;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 .canvas {
@@ -49,13 +54,11 @@ main {
 }
 
 .startScreen {
-    text-align: auto;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 800px;
-    width: 600px;
+    height: 100%;
+    width: 100%;
 }
 
 label {
