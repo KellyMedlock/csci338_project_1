@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: green;
+    
+}
+
+#dealer-cards img{
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#your-cards img{
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+.button{
+    background-color:rgba(222, 42, 32, 0.951);
+    border-style: dashed;
+    border-radius: 10%;
+    border-width: medium;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#dealer-hand img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#player-hand img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
