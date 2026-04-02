@@ -71,4 +71,5 @@ main .gamesContainer .gameCard a:visited {
 
 main .gamesContainer .gameCard img {
     width: 250px;
+    height: 250px;  /*change made from original so cards for black jack would be the same height*/
 }
