@@ -1,10 +1,21 @@
-let difficulty = "easy";
+let difficulty = "hard";
 let bombs;
 
 let board;
 let cleanCells;
 
 let rows, cols;
+
+const directions = [
+  [-1, -1],
+  [-1, 0],
+  [-1, 1],
+  [0, -1],
+  [0, 1],
+  [1, -1],
+  [1, 0],
+  [1, 1],
+];
 
 function createBoard(rows, cols) {
   return Array.from({ length: rows }, () => Array(cols).fill(0));
@@ -28,9 +39,28 @@ function buildBoard() {
   board = createBoard(rows, cols);
   placeBombs();
 
-  for (let row = 0; row < board.length; row++) {
-    console.table(board);
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (board[i][j] !== "X") {
+        let count = 0;
+
+        for (let [dx, dy] of directions) {
+          let x = i + dx;
+          let y = j + dy;
+
+          if (x >= 0 && x < rows && y >= 0 && y < cols) {
+            if (board[x][y] === "X") {
+              count++;
+            }
+          }
+        }
+
+        board[i][j] = count;
+      }
+    }
   }
+
+  console.table(board);
 }
 
 function placeBombs() {
