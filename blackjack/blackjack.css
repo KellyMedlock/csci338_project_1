@@ -1,20 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #CCC0C0;
+    color: #E5D8D8;
     text-align: center;
+    font-family: "Asimovian", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header {
+    width: 100%;
+    min-height: 10vh;
+    padding: 0 50px;
+    background-color: #4C171B;
+    box-shadow: 0px 3px 2px #1A0709B6;
+    margin-bottom: 2%;
+}
+
+.game-box{
+    padding-left: 15%;
+    padding-right: 15%;
     background-color: green;
-    
-}
+    background-image: url('https://media.istockphoto.com/id/453187915/photo/green-poker-background.jpg?s=612x612&w=0&k=20&c=vyDFU6Z9Yv3kSfrbO4Fn2yDwWhUbEh7_1lw2nVsIMAs=');
+    background-size: cover;
+    border-style: dashed;
+    border-radius: 10%;
+    margin-bottom: 2%;
+    box-shadow: 0px 3px 2px #1A0709B6;
+} 
 
-#dealer-cards img{
-    height: 175px;
-    width: 125px;
-    margin: 1px;
-}
-
-#your-cards img{
-    height: 175px;
-    width: 125px;
-    margin: 1px;
+.go-Back{
+    display: flex;
+    align-items:center;
+    padding: 10px;
+    text-decoration: none;
+    color: #E5D8D8;
+    background-color: #4C171B;  
 }
 
 .button{
@@ -22,7 +49,7 @@ body {
     border-style: dashed;
     border-radius: 10%;
     border-width: medium;
-    color: white;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -31,13 +58,11 @@ body {
 }
 
 #dealer-hand img {
-    height: 175px;
-    width: 125px;
+    height: 100px;
     margin: 1px;
 }
 
 #player-hand img {
-    height: 175px;
-    width: 125px;
+    height: 100px;
     margin: 1px;
 }
