@@ -8,16 +8,28 @@
     <script src="blackjack.js"></script>
 </head>
 <body>
-    <h2>Dealer: <span id="dealer-sum"></span></h2>
-    <div id="dealer-hand"></div>
-    <h2>You: <span id="player-sum"></span></h2>
-    <div id="player-hand"></div>
-    <p>Your current total is:</p>
-    <p id="player-hand-current-sum"></p>
-    <br>
-    <button class="button" id="hit">Hit</button>
-    <button class="button" id="stay">Stay</button>
-    <button class="button" id="new-game">New game</button>
-    <p id ="results"></p>
+    <header>
+            <div class="logo">
+                <h1>
+                    <a href="../index.html" class="go-Back">Logo Here</a>
+                </h1>
+            </div>
+    </header>
+    <div class="game-box">
+        <h2>Dealer: <span id="dealer-sum"></span></h2>
+        <div id="dealer-hand"></div>
+        <h2>You: <span id="player-sum"></span></h2>
+        <div id="player-hand"></div>
+        <p class="sum">Your current total is: </p>
+        <p class="sum" id="player-hand-current-sum"></p>
+        <div class="popup">
+            <p id ="results"></p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="button" id="hit">Hit</button>
+        <button class="button" id="stay">Stay</button>
+        <button class="button" id="new-game">New game</button>
+    </div>
 </body>
 </html>
