@@ -92,4 +92,37 @@ function placeBombs() {
   }
 }
 
+function handleClick(event) {
+  const button = event.target;
+
+  const row = parseInt(button.dataset.row);
+  const col = parseInt(button.dataset.col);
+
+  const value = board[row][col];
+
+  if (value === "X") {
+    button.textContent = "💣";
+    button.style.backgroundColor = "red";
+  } else {
+    button.textContent = value;
+    button.disabled = true;
+  }
+}
+
 buildBoard();
+
+const boardElement = document.getElementById("board");
+
+for (let i = 0; i < rows; i++) {
+  for (let j = 0; j < cols; j++) {
+    const button = document.createElement("button");
+    button.dataset.row = i;
+    button.dataset.col = j;
+
+    button.addEventListener("click", handleClick);
+
+    boardElement.appendChild(button);
+  }
+
+  boardElement.appendChild(document.createElement("br"));
+}
