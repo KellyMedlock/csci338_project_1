@@ -1,10 +1,14 @@
-let difficulty = "hard";
+let difficulty = "easy";
 let bombs;
 
 let board;
 let cleanCells;
 
 let rows, cols;
+
+let revealed, flagged;
+
+let flagsPlaced = 0;
 
 const directions = [
   [-1, -1],
@@ -37,6 +41,9 @@ function buildBoard() {
   }
 
   board = createBoard(rows, cols);
+
+  revealed = Array.from({ length: rows }, () => Array(cols).fill(false));
+  flagged = Array.from({ length: rows }, () => Array(cols).fill(false));
   placeBombs();
 
   for (let i = 0; i < rows; i++) {
@@ -92,24 +99,81 @@ function placeBombs() {
   }
 }
 
+function floodFill(row, col) {
+  if (row < 0 || row >= rows || col < 0 || col >= cols) return;
+
+  if (revealed[row][col]) return;
+
+  revealed[row][col] = true;
+
+  const value = board[row][col];
+
+  const button = document.querySelector(
+    `[data-row="${row}"][data-col="${col}"]`,
+  );
+
+  if (!button) {
+    return;
+  }
+
+  button.disabled = true;
+
+  if (value === "X") return;
+
+  button.textContent = value;
+
+  if (value !== 0) return;
+
+  for (let [dx, dy] of directions) {
+    floodFill(row + dx, col + dy);
+  }
+}
+
 function handleClick(event) {
   const button = event.target;
 
   const row = parseInt(button.dataset.row);
   const col = parseInt(button.dataset.col);
 
+  if (flagged[row][col]) return;
+
   const value = board[row][col];
 
   if (value === "X") {
     button.textContent = "💣";
     button.style.backgroundColor = "red";
+    return;
+  }
+  floodFill(row, col);
+}
+
+function handleRightClick(event) {
+  event.preventDefault();
+
+  const button = event.target;
+
+  const row = parseInt(button.dataset.row);
+  const col = parseInt(button.dataset.col);
+
+  if (revealed[row][col]) return;
+
+  if (!flagged[row][col]) {
+    if (flagsPlaced >= bombs) return;
+
+    flagged[row][col] = true;
+    button.textContent = "🚩";
+    flagsPlaced++;
   } else {
-    button.textContent = value;
-    button.disabled = true;
+    flagged[row][col] = false;
+    button.textContent = "";
+    flagsPlaced--;
   }
 }
 
 buildBoard();
+
+//const flagsLeft = bombs - flagsPlaced;
+//document.getElementById("flagCount").textContent = flagsLeft;
 
 const boardElement = document.getElementById("board");
 
@@ -120,6 +184,7 @@ for (let i = 0; i < rows; i++) {
     button.dataset.col = j;
 
     button.addEventListener("click", handleClick);
+    button.addEventListener("contextmenu", handleRightClick);
 
     boardElement.appendChild(button);
   }
