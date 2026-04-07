@@ -1,0 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Margarine&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap');
+
+body {
+    text-align: center;
+    background: url(./bg.jpg);
+    background-size: cover;
+
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    color: rgb(213, 213, 112);
+}
+
+#board {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto ;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: lightblue;
+    border: 7px solid rgb(45, 101, 180);
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+}
