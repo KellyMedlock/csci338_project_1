@@ -1,8 +1,10 @@
 let difficulty = "easy";
+let gameOver = false;
 let bombs;
 
 let board;
 let cleanCells;
+let revealedCount = 0;
 
 let rows, cols;
 
@@ -99,6 +101,23 @@ function placeBombs() {
   }
 }
 
+function revealAllBombs() {
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      if (board[i][j] === "X") {
+        const button = document.querySelector(
+          `[data-row="${i}"][data-col="${j}"]`,
+        );
+
+        if (button) {
+          button.textContent = "💣";
+          button.style.backgroundColor = "red";
+        }
+      }
+    }
+  }
+}
+
 function floodFill(row, col) {
   if (row < 0 || row >= rows || col < 0 || col >= cols) return;
 
@@ -121,8 +140,18 @@ function floodFill(row, col) {
   if (value === "X") return;
 
   button.textContent = value;
+  revealedCount++;
 
-  if (value !== 0) return;
+  if (revealedCount === cleanCells) {
+    gameOver = true;
+    alert("You Win! 🎉");
+    revealAllBombs();
+    return;
+  }
+
+  if (value !== 0) {
+    return;
+  }
 
   for (let [dx, dy] of directions) {
     floodFill(row + dx, col + dy);
@@ -130,6 +159,7 @@ function floodFill(row, col) {
 }
 
 function handleClick(event) {
+  if (gameOver) return;
   const button = event.target;
 
   const row = parseInt(button.dataset.row);
@@ -142,12 +172,17 @@ function handleClick(event) {
   if (value === "X") {
     button.textContent = "💣";
     button.style.backgroundColor = "red";
+    gameOver = true;
+    revealAllBombs();
+    alert("Game Over!");
+
     return;
   }
   floodFill(row, col);
 }
 
 function handleRightClick(event) {
+  if (gameOver) return;
   event.preventDefault();
 
   const button = event.target;
@@ -170,24 +205,47 @@ function handleRightClick(event) {
   }
 }
 
-buildBoard();
-
 //const flagsLeft = bombs - flagsPlaced;
 //document.getElementById("flagCount").textContent = flagsLeft;
+function renderBoard() {
+  const boardElement = document.getElementById("board");
 
-const boardElement = document.getElementById("board");
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      const button = document.createElement("button");
+      button.dataset.row = i;
+      button.dataset.col = j;
 
-for (let i = 0; i < rows; i++) {
-  for (let j = 0; j < cols; j++) {
-    const button = document.createElement("button");
-    button.dataset.row = i;
-    button.dataset.col = j;
+      button.addEventListener("click", handleClick);
+      button.addEventListener("contextmenu", handleRightClick);
 
-    button.addEventListener("click", handleClick);
-    button.addEventListener("contextmenu", handleRightClick);
+      boardElement.appendChild(button);
+    }
 
-    boardElement.appendChild(button);
+    boardElement.appendChild(document.createElement("br"));
   }
-
-  boardElement.appendChild(document.createElement("br"));
 }
+
+function newGame() {
+  gameOver = false;
+  revealedCount = 0;
+  flagsPlaced = 0;
+  revealed = new Array();
+  flagged = new Array();
+
+  const boardElement = document.getElementById("board");
+  boardElement.innerHTML = "";
+
+  buildBoard();
+  renderBoard();
+}
+
+buildBoard();
+renderBoard();
+document.getElementById("newGameBtn").addEventListener("click", newGame);
+document.querySelectorAll(".difficulty button").forEach((button) => {
+  button.addEventListener("click", () => {
+    difficulty = button.dataset.difficulty;
+    newGame();
+  });
+});
