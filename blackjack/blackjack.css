@@ -31,6 +31,14 @@ a {
     color: #E5D8D8;
 }
 
+a h1 {
+    transition: transform .5s ease;
+}
+
+a:hover h1 {
+    transform: scale(1.1);
+}
+
 /* Make changes so that the box doesn't change size  */
 .game-box{
     padding-left: 15%;
