@@ -54,6 +54,7 @@ header {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 #player-hand, #dealer-hand {
     display: flex;
     flex-wrap: nowrap;
@@ -114,4 +115,16 @@ header {
 @keyframes popupFade {
     from { transform: scale(0.8); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
+=======
+#dealer-hand img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+}
+
+#player-hand img {
+    height: 175px;
+    width: 125px;
+    margin: 1px;
+>>>>>>> kellyMedlockDevelopment
 }
