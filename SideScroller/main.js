@@ -38,7 +38,10 @@ function isInsideAreaAttack(locX, locY, left, right, top, bottom) {
 }
 
 function setup() {
-  createCanvas(1800, 1000);
+  const container = document.getElementById("game-container");
+  const canvas = createCanvas(container.clientWidth, container.clientHeight);
+  canvas.parent("game-container");
+
   frameRate(120);
 
   playerX = -10;
@@ -47,6 +50,11 @@ function setup() {
   enemyplacement();
   bosslocation();
   bossChallenge = int(random(30, 60));
+}
+
+function windowResized() {
+  const container = document.getElementById("game-container");
+  resizeCanvas(container.clientWidth, container.clientHeight);
 }
 
 function draw() {
@@ -106,7 +114,7 @@ function mainmenu() {
   background(100);
   fill(255);
   textFont("Arial");
-  textSize(50);
+  textSize(35);
   text("welcome to alien attack a side Scroller game", 10, 70);
   text(
     "movements are D and A for forward and back and W and S to move up and down",
@@ -122,11 +130,11 @@ function mainmenu() {
 
   fill(240, 30, 30);
   textSize(100);
-  text("ALIEN ATTACK!!!!", width / 2 - 450, height / 2);
+  text("ALIEN ATTACK!!!!", width / 2 - 450, height / 1.5);
 
   fill(255);
   textSize(40);
-  text("Press ENTER to start", width / 2 - 180, height / 2 + 100);
+  text("Press ENTER to start", width / 2 - 180, height / 1.5 + 100);
 
   timer = 3600;
 }
