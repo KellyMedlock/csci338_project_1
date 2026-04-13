@@ -5,7 +5,6 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #CCC0C0;
     color: #E5D8D8;
     text-align: center;
@@ -23,15 +22,16 @@ header {
     margin-bottom: 2%;
 }
 
+/* Make changes so that the box doesn't change size  */
 .game-box{
     padding-left: 15%;
     padding-right: 15%;
-    background-color: green;
+    background-color: rgb(8, 97, 8);
     background-image: url('https://media.istockphoto.com/id/453187915/photo/green-poker-background.jpg?s=612x612&w=0&k=20&c=vyDFU6Z9Yv3kSfrbO4Fn2yDwWhUbEh7_1lw2nVsIMAs=');
     background-size: cover;
     border-style: dashed;
     border-radius: 10%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
     box-shadow: 0px 3px 2px #1A0709B6;
 } 
 
@@ -57,12 +57,64 @@ header {
     cursor: pointer;
 }
 
-#dealer-hand img {
-    height: 100px;
-    margin: 1px;
+#player-hand, #dealer-hand {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+    height: 140px;
+    overflow-x: auto;
 }
 
-#player-hand img {
-    height: 100px;
-    margin: 1px;
+.card {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* pop up stuff */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6); /* dark overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup-content {
+    background-color: rgb(8, 97, 8);
+    background-image: url('https://media.istockphoto.com/id/453187915/photo/green-poker-background.jpg?s=612x612&w=0&k=20&c=vyDFU6Z9Yv3kSfrbO4Fn2yDwWhUbEh7_1lw2nVsIMAs=');
+    background-size: cover;
+    border-style: dashed;
+    padding: 25px 35px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    animation: popupFade 0.25s ease-out;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    font-size: 1.6rem;
+}
+
+.popup-content p {
+    margin: 15px 0;
+    font-size: 1.2rem;
+}
+
+/* Pop up animation */
+@keyframes popupFade {
+    from { transform: scale(0.8); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
 }

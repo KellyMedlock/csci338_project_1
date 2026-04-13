@@ -11,7 +11,7 @@
     <header>
             <div class="logo">
                 <h1>
-                    <a href="../index.html" class="go-Back">Logo Here</a>
+                    <a href="../index.html" class="go-Back">Ludos Games</a>
                 </h1>
             </div>
     </header>
@@ -20,16 +20,19 @@
         <div id="dealer-hand"></div>
         <h2>You: <span id="player-sum"></span></h2>
         <div id="player-hand"></div>
-        <p class="sum">Your current total is: </p>
-        <p class="sum" id="player-hand-current-sum"></p>
-        <div class="popup">
-            <p id ="results"></p>
+        <p class="sum" id="player-hand-current-sum">Your current total is: </p>
+    </div>
+    <div id="game-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2 id="popup-title">Game Over</h2>
+            <p id="results"></p>
+        <button class="button" id="new-game">New game</button>
         </div>
     </div>
+
     <div class="buttons">
         <button class="button" id="hit">Hit</button>
         <button class="button" id="stay">Stay</button>
-        <button class="button" id="new-game">New game</button>
     </div>
 </body>
 </html>
