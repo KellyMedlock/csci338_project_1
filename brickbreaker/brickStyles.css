@@ -38,6 +38,11 @@ main {
     padding: 10px;
 }
 
+a {
+    text-decoration: none;
+    color: #E5D8D8;
+}
+
 .canvas {
     border: 1px solid white;
     padding: 15px;
