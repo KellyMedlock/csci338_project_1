@@ -5,6 +5,8 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: #CCC0C0;
     color: #E5D8D8;
     text-align: center;
@@ -18,8 +20,15 @@ header {
     min-height: 10vh;
     padding: 0 50px;
     background-color: #4C171B;
+    display: flex;
+    align-items: center;
     box-shadow: 0px 3px 2px #1A0709B6;
     margin-bottom: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: #E5D8D8;
 }
 
 /* Make changes so that the box doesn't change size  */
