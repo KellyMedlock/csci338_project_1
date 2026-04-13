@@ -44,6 +44,8 @@ function startGame(){
     document.getElementById("player-hand").innerHTML = "";
     document.getElementById("results").innerText = "";
     document.getElementById("player-hand-current-sum").innerText = "";
+    document.getElementById("game-popup").classList.add("hidden");
+
     //reset 
     dealerSum = 0;
     playerSum = 0;
@@ -132,7 +134,7 @@ function stay(){
     else if (dealerSum > 21){
         results = `You win with ${playerSum}. Dealer busts with ${dealerSum}.`;
     }
-    else if (playerAceCount == dealerSum){
+    else if (playerSum == dealerSum){
         results = `Tie! You both have ${playerSum}.`;
     }
     else if (playerSum > dealerSum){
@@ -143,11 +145,14 @@ function stay(){
     }
 
     document.getElementById("results").innerText = results;
+    document.getElementById("game-popup").classList.remove("hidden");
+    document.getElementById("new-game").addEventListener("click", startGame);
+
 } 
 
 //calculate current hand 
 function updateSums(){
-    document.getElementById("player-hand-current-sum").innerText = reduceAce(playerSum, playerAceCount);
+    document.getElementById("player-hand-current-sum").innerText = "Your current total is: " + reduceAce(playerSum, playerAceCount);
 }
 
 function getValue(card){
@@ -176,8 +181,4 @@ function reduceAce(sum, aceCount) {
         aceCount--;
     }
     return sum;
-}
-
-function popup(){
-
 }
