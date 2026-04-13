@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #CCC0C0;
+    font-family: "Asimovian", Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    min-height: 10vh;
+    padding: 0 50px;
+    background-color: #4C171B;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 2px #1A0709B6;
+}
+
+a {
+    text-decoration: none;
+    color: #E5D8D8;
+}
+
 button {
   width: 40px;
   height: 40px;
