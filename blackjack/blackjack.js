@@ -14,8 +14,6 @@ window.onload = function() {
     startGame();
 };
 
-//build deck 
-
 function buildDeck(){
     let values = [
         2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -111,8 +109,8 @@ function hit(){
     document.getElementById("player-hand").append(cardImg);
 
     if (reduceAce(playerSum, playerAceCount) > 21){
-        if (playerSum >= 21){
-        stay();
+        if (playerSum > 21){
+            stay();
         }
         playerIn = false;
     }
@@ -134,7 +132,7 @@ function stay(){
         results = `You bust with ${playerSum}. Dealer has ${dealerSum}. Dealer wins.`;
     }
     else if (dealerSum > 21){
-        results = `Dealer busts with ${dealerSum}. You win with ${playerSum}.`;
+        results = `You win with ${playerSum}. Dealer busts with ${dealerSum}.`;
     }
     else if (playerSum == dealerSum){
         results = `Tie! You both have ${playerSum}.`;
