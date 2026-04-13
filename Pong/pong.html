@@ -1,0 +1,52 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pong Page</title>
+    <link rel="stylesheet" href="pong.css">
+    <script src="pong.js"></script>
+</head>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pong</title>
+    <link rel="stylesheet" href="pong.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>PONG</h1>
+            <div class="score-board">
+                <div class="score-card">
+                    <span class="player-label">PLAYER</span>
+                    <span id="playerScore" class="score-value">0</span>
+                </div>
+                <div class="score-card">
+                    <span class="player-label">AI</span>
+                    <span id="aiScore" class="score-value">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <canvas id="pongCanvas" width="1000" height="600"></canvas>
+        
+        <div class="game-controls">
+            <button id="startBtn" class="control-btn">▶ START GAME</button>
+            <button id="resetBtn" class="control-btn">🔄 RESET</button>
+        </div>
+        
+        <div class="instructions">
+            <p>Move mouse up/down on canvas to control your paddle | First to 7 wins!</p>
+            <p>AI gets harder as you score more points</p>
+        </div>
+    </div>
+    
+    <script src="pong.js"></script>
+</body>
+</html>
