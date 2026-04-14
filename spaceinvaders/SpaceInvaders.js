@@ -59,6 +59,7 @@ window.onload=function(){
     document.addEventListener("keyup",shoot);
     document.addEventListener("keyup",play);
     rounds[0]=setInterval(enemyShoot,2000);
+
 }
 
 
