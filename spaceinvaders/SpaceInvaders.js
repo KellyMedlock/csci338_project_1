@@ -59,6 +59,7 @@ window.onload=function(){
     document.addEventListener("keyup",shoot);
     document.addEventListener("keyup",play);
     rounds[0]=setInterval(enemyShoot,2000);
+
 }
 
 
@@ -234,6 +235,7 @@ function detectHit(a,b){
 //play after death
 function play(e){
     if(!player.alive && e.code=="KeyS"){
+        enemySpeed=.7;
         enemies=[];
         enemyBullets=[];
         bullets=[];
