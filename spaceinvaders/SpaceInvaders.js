@@ -234,6 +234,7 @@ function detectHit(a,b){
 //play after death
 function play(e){
     if(!player.alive && e.code=="KeyS"){
+        enemySpeed=.7;
         enemies=[];
         enemyBullets=[];
         bullets=[];
