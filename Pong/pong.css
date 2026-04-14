@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,40 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background: linear-gradient(135deg, #00a558 0%, #a5007c 100%);
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Courier New', 'Monaco', monospace;
-    padding: 20px;
+}
+
+header {
+    width: 100%;
+    min-height: 10vh;
+    padding: 0 50px;
+    background-color: #4C171B;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 2px #1A0709B6;
+    margin-bottom: 2%;
+    font-family: "Asimovian", Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #E5D8D8;
+}
+
+a h1 {
+    transition: transform .5s ease;
+}
+
+a:hover h1 {
+    transform: scale(1.1);
 }
 
 .game-container {
